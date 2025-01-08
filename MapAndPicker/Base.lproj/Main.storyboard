@@ -1,24 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vBI-aj-0de">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--식당 지도-->
+        <scene sceneID="NGS-U6-GH6">
+            <objects>
+                <viewController id="btd-ho-ho6" customClass="FoodMapViewController" customModule="MapAndPicker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2FU-nF-xyD">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HNN-PM-MjE">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bVP-St-sCu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HNN-PM-MjE" firstAttribute="leading" secondItem="bVP-St-sCu" secondAttribute="leading" id="0Ui-M1-mGS"/>
+                            <constraint firstItem="bVP-St-sCu" firstAttribute="trailing" secondItem="HNN-PM-MjE" secondAttribute="trailing" id="ImN-wq-9a9"/>
+                            <constraint firstItem="bVP-St-sCu" firstAttribute="bottom" secondItem="HNN-PM-MjE" secondAttribute="bottom" id="Yrt-3i-Cat"/>
+                            <constraint firstItem="HNN-PM-MjE" firstAttribute="top" secondItem="bVP-St-sCu" secondAttribute="top" id="wyI-9t-6B1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="식당 지도" id="35d-Xe-ibh">
+                        <barButtonItem key="rightBarButtonItem" image="line.3.horizontal" catalog="system" id="jh9-04-NJl">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="menuButtonTapped:" destination="btd-ho-ho6" id="cwE-aa-gt0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="HNN-PM-MjE" id="e4u-gz-b7f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ir2-lX-psA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="364" y="25"/>
+        </scene>
+        <!--369 게임-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PickerViewController" customModule="MapAndPicker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="최대 숫자를 입력하세요" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ngz-fr-pKe">
+                                <rect key="frame" x="10" y="113" width="373" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Not-Hd-aTZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kh9-uh-2Cc">
+                                <rect key="frame" x="10" y="163" width="373" height="186.66666666666663"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kh9-uh-2Cc" secondAttribute="height" multiplier="2:1" id="QlW-Ui-btP"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLO-8v-cDd">
+                                <rect key="frame" x="10" y="359.66666666666669" width="373" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="rgf-oZ-VN7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ngz-fr-pKe" secondAttribute="trailing" constant="10" id="Al7-fD-eQI"/>
+                            <constraint firstItem="ngz-fr-pKe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="RTg-Rf-wFT"/>
+                            <constraint firstItem="kh9-uh-2Cc" firstAttribute="top" secondItem="ngz-fr-pKe" secondAttribute="bottom" constant="10" id="TdE-hx-N9Q"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kh9-uh-2Cc" secondAttribute="trailing" constant="10" id="c2g-Lh-Ei9"/>
+                            <constraint firstItem="OLO-8v-cDd" firstAttribute="top" secondItem="kh9-uh-2Cc" secondAttribute="bottom" constant="10" id="cRU-zx-Za5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OLO-8v-cDd" secondAttribute="trailing" constant="10" id="gnx-Ri-zOP"/>
+                            <constraint firstItem="OLO-8v-cDd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="i1K-Dz-Yz2"/>
+                            <constraint firstItem="ngz-fr-pKe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="qIV-HQ-bIN"/>
+                            <constraint firstItem="kh9-uh-2Cc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="zhE-pN-lhh"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="369 게임" id="Km2-Vk-aiy"/>
+                    <connections>
+                        <outlet property="resultTextView" destination="kh9-uh-2Cc" id="sbr-jG-rYg"/>
+                        <outlet property="textField" destination="ngz-fr-pKe" id="vDv-TF-J43"/>
+                        <outlet property="totalCountLabel" destination="OLO-8v-cDd" id="Zm5-oQ-s0D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1065" y="25"/>
+        </scene>
+        <!--369게임-->
+        <scene sceneID="xcd-cg-MLm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N8R-2d-9tS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="369게임" image="gamecontroller" catalog="system" id="hBC-hV-zu4"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rgB-FV-xC1">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wIJ-yc-9b4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NLr-ji-I48" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1991.6030534351144" y="-704.22535211267609"/>
+        </scene>
+        <!--식당 지도-->
+        <scene sceneID="gJy-QN-N5P">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Drh-Zs-yXF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="식당 지도" image="fork.knife" catalog="system" id="z50-TU-DO5"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="42z-Fg-JVn">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="btd-ho-ho6" kind="relationship" relationship="rootViewController" id="TMm-aF-jil"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WbG-km-kHx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1289.3129770992366" y="-704.22535211267609"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="jR5-DU-dzb">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="vBI-aj-0de" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nTK-EN-hmW">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Drh-Zs-yXF" kind="relationship" relationship="viewControllers" id="g0s-i5-ko0"/>
+                        <segue destination="N8R-2d-9tS" kind="relationship" relationship="viewControllers" id="oRE-ez-KmZ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eSw-nR-eXg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="362.59541984732823" y="-704.22535211267609"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fork.knife" catalog="system" width="94" height="128"/>
+        <image name="gamecontroller" catalog="system" width="128" height="79"/>
+        <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
