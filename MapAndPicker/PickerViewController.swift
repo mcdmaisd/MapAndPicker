@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class PickerViewController: UIViewController {
     
     @IBOutlet private var textField: UITextField!
     @IBOutlet private var totalCountLabel: UILabel!
@@ -66,7 +66,7 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
 }
 
-extension PickerViewController {
+extension PickerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         list.count
     }
